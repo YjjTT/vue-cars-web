@@ -1,51 +1,53 @@
 <template>
     <div class="cars-wrap">
-        <section class="cars-item">
-            <header>
-                <h4 class="cars-logo">
-                    <img src="../../assets/images/cars-logo.png" alt="Mustang 2019款">
-                    <span class="name">Mustang 2019款</span>
-                </h4>
-                <p class="cars-attr">新能源汽车 5座</p>
-            </header>
-            <div class="cars-content">
-                <div class="info">
-                    <div>
-                        <h4 class="cars-number">粤 213213</h4>
-                        <div>
-                            <ul class="cars-electric active-li-6">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <p class="distance">
-                                <sub>约</sub>
-                                <strong>600</strong>
-                                <sub>KM</sub>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <img src="../../assets/images/pic001.jpg" alt="">
-            </div>
-            <footer>
-                <a href="javascript:;" class="parking-link">某某停车场</a>
-            </footer>
-        </section>
-        <span @click="user">汽车列表</span>
+        <div class="cars-swiper-wrap">
+            <swiper class="swiper" :options="swiperOption">
+                <swiper-slide>
+                    <CarsItem />
+                </swiper-slide>
+                <swiper-slide>
+                    <CarsItem />
+                </swiper-slide>
+                <swiper-slide>
+                    <CarsItem />
+                </swiper-slide>
+                <swiper-slide>
+                    <CarsItem />
+                </swiper-slide>
+                <swiper-slide>
+                    <CarsItem />
+                </swiper-slide>
+            </swiper>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+        </div>
     </div>
 </template>
 
 <script>
+    import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+    import 'swiper/css/swiper.css';
+    import CarsItem from '../../components/carsList/index';
+
     export default {
         name: "Cars",
+        components: {
+            Swiper,
+            SwiperSlide,
+            CarsItem
+        },
+        data() {
+            return {
+                swiperOption: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev'
+                    }
+                }
+            }
+        },
         methods: {
             user() {
                 this.$router.push({
@@ -65,109 +67,64 @@
         right: 0;
         z-index: 11;
     }
-    .cars-item {
-        background-color: #ffffff;
-        border-radius: 24px;
-        margin: auto;
-        padding: 30px 30px 0;
-        @include webkit(box-shadow, 0 0 18px 0 rgba(0,0,0,0.2));
-        @include webkit(box-sizing, border-box);
-        width: 505px;
-        height: 257px;
-        header {
-            display: flex;
-            h4, p {
-                flex: 1;
-            }
-        }
-    }
-    .cars-logo {
-        img {
-            display: inline-block;
-            height: 34px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        .name { font-size: 16px; }
-    }
-    .cars-attr {
-        text-align: right;
-        opacity: 0.5;
-        line-height: 34px;
-    }
-    .cars-content {
+    .cars-swiper-wrap {
         position: relative;
-        @include clearfix;
-        margin: 11px 0 7px 0;
-        img {
-            float: right;
-            height: 120px;
-        }
-        .info {
-            display: flex;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-        }
-        .cars-number {
-            font-size: 18px;
-        }
-        .cars-electric {
-            display: inline-block;
-            padding-top: 10px;
-            li {
-                display: inline-block;
-                width: 7px;
-                height: 24px;
-                border-radius: 100px;
-                background-color: #e1e1e1;
-                margin-right: 3px;
+        padding: 0 155px;
+        .swiper-button-prev,
+        .swiper-button-next {
+            top: 50%;
+            margin-top: -50px;
+            width: 60px;
+            height: 100px;
+            outline: none;
+            border-radius: 100px;
+            background-color: #fff;
+            @include webkit(box-shadow, 0 0 18px 0 rgba(0,0,0,0.2));
+            @include webkit(transition, all .3s ease 0s);
+            &.swiper-button-disabled {
+                opacity: 1;
             }
-            @for $i from 1 through 10 {
-                &.active-li-#{$i} {
-                    li:nth-child(-n+#{$i}) {
-                        @include webkitA(background, linear-gradient(#17a8fa, #108dd9));
-                    }
+            &:hover {
+                background-color: $color_main;
+            }
+        }
+        .swiper-button-prev {
+            left: 53px;
+            &:after {
+                content: "";
+                width: 17px;
+                height: 17px;
+                margin-left: 5px;
+                border-left: 3px solid #000;
+                border-top: 3px solid #000;
+                @include webkit(transform, rotate(-45deg));
+                @include webkit(box-sizing, border-box);
+            }
+            &:hover {
+                &:after {
+                    border-left: 3px solid $color_blur;
+                    border-top: 3px solid $color_blur;
                 }
             }
         }
-        .distance {
-            margin-left: 5px;
-            display: inline-block;
-            strong {
-                margin: 0 3px;
-                font-size: 22px;
+        .swiper-button-next {
+            right: 53px;
+            &:after {
+                content: "";
+                width: 17px;
+                height: 17px;
+                margin-right: 5px;
+                border-right: 3px solid #000;
+                border-top: 3px solid #000;
+                @include webkit(transform, rotate(45deg));
+                @include webkit(box-sizing, border-box);
             }
-            sub {
-                position: relative;
-                top: -2px;
+            &:hover {
+                &:after {
+                    border-right: 3px solid $color_blur;
+                    border-top: 3px solid $color_blur;
+                }
             }
-            sub:first-of-type {
-                opacity: .8;
-            }
-        }
-    }
-    .parking-link {
-        display: block;
-        border-top: 1px solid #e1e1e1;
-        color: $color_main;
-        opacity: .8;
-        line-height: 53px;
-        position: relative;
-        &:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            margin-top: -8px;
-            border-top: 1px solid #d6d7d9;
-            border-right: 1px solid #d6d7d9;
-            width: 8px;
-            height: 8px;
-            right: 0;
-            @include webkit(transform, rotate(45deg));
         }
     }
 </style>

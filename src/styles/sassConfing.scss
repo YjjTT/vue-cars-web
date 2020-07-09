@@ -1,4 +1,5 @@
 $color_main: #34393f;
+$color_blur: #00a3ff;
 
 @mixin webkit($type, $value) {
   -webkit-#{$type}: $value;
