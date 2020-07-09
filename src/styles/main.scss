@@ -23,3 +23,17 @@ i[class^=icon] { // 获取类名开头为icon的i标签
 .icon-select {
   background-image: url(~@/assets/images/icon/icon-select.png);
 }
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.clearfix { @include clearfix; }
+.fs-24 { font-size: 24px; }
+.p-r {
+  position: relative;
+}
+.p-a {
+  position: absolute;
+}

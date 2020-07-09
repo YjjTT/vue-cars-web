@@ -3,7 +3,7 @@
         <div class="cars-swiper-wrap">
             <swiper class="swiper" :options="swiperOption">
                 <swiper-slide>
-                    <CarsItem />
+                    <CarsItem height="800px" />
                 </swiper-slide>
                 <swiper-slide>
                     <CarsItem />
@@ -68,6 +68,9 @@
         z-index: 11;
     }
     .cars-swiper-wrap {
+        .swiper-container {
+            overflow: initial;
+        }
         position: relative;
         padding: 0 155px;
         .swiper-button-prev,
