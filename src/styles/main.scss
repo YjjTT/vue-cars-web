@@ -1,13 +1,13 @@
 @import "./sassConfing.scss";
 @import "./normalize.scss";
+@import "./ui.scss";
 i[class^=icon] { // 获取类名开头为icon的i标签
   display: inline-block;
-  width: 44px;
-  height: 44px;
   border-radius: 22px;
   background-color: $color_main;
   background-repeat: no-repeat;
 }
+.icon-w-44{width: 44px; height: 44px;}
 .icon-help {
   background-image: url(~@/assets/images/icon/icon-help.png);
 }
@@ -23,17 +23,101 @@ i[class^=icon] { // 获取类名开头为icon的i标签
 .icon-select {
   background-image: url(~@/assets/images/icon/icon-select.png);
 }
-.pull-right {
-  float: right;
+.icon-account {
+  background-image: url(~@/assets/images/icon/icon-router-link-001.png);
 }
-.pull-left {
-  float: left;
+.icon-order {
+  background-image: url(~@/assets/images/icon/icon-router-link-002.png);
 }
+.icon-realname {
+  background-image: url(~@/assets/images/icon/icon-router-link-003.png);
+}
+.icon-safety {
+  background-image: url(~@/assets/images/icon/icon-router-link-004.png);
+}
+.icon-help-center {
+  background-image: url(~@/assets/images/icon/icon-router-link-005.png);
+}
+/**
+color
+ */
+.color-main { color: $color_main; }
+/**
+float
+ */
+.pull-right {float: right;}
+.pull-left {float: left;}
+/**
+text-align
+ */
+.text-center {text-align: center;}
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+/**
+clearfix
+ */
 .clearfix { @include clearfix; }
+/**
+font-size
+ */
 .fs-24 { font-size: 24px; }
-.p-r {
-  position: relative;
+/**
+position
+ */
+.p-r {position: relative;}
+.p-a {position: absolute;}
+/**
+common
+ */
+.select-car-btn {
+  display: block;
+  margin: 0 17px;
+  height: 84px;
+  width: 240px;
+  line-height: 84px;
+  text-align: center;
+  border-radius: 100px;
+  color: #ffffff;
+  background-color: $color_main;
+  font-size: 26px;
+  font-weight: 300;
 }
-.p-a {
-  position: absolute;
+.user-container {
+  padding: 0 30px;
+}
+/**
+user router-link
+ */
+.group-links {
+  a {
+    position: relative;
+    display: block;
+    margin:0 -30px;
+    padding: 0 30px;
+    height: 64px;
+    font-size: 15px;
+    line-height: 64px;
+    color: rgba(255,255,255,.4);
+    border-bottom: 1px solid rgba(255,255,255,.03);
+  }
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 16px -10px 0;
+  }
+  .arrow:after {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    margin-top: -6px;
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid #ffffff;
+    border-right: 1px solid #fff;
+    @include webkit(box-sizing, border-box);
+    @include webkit(transform, rotate(45deg));
+    opacity: .1;
+  }
 }

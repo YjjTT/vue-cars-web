@@ -14,6 +14,16 @@ const routes = [
         path: "/user",
         name: "User",
         component: () => import("../views/user/index")
+      },
+      {
+        path: "/safety",
+        name: "Safety",
+        component: () => import("../views/safety/index")
+      },
+      {
+        path: "/password",
+        name: "Password",
+        component: () => import("../views/safety/password")
       }
     ]
   }

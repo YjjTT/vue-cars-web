@@ -1,20 +1,27 @@
 <template>
     <div class="navbar">
         <ul>
-            <li><i class="icon icon-help"></i></li>
-            <li><i class="icon icon-search"></i></li>
+            <li><i class="icon icon-w-44 icon-help"></i></li>
+            <li><i class="icon icon-w-44 icon-search"></i></li>
             <li>
                 <a href="javascript: void(0);" class="select-car-btn">选择车辆</a>
             </li>
-            <li><i class="icon icon-location"></i></li>
-            <li><i class="icon icon-center"></i></li>
+            <li><i class="icon icon-w-44 icon-location"></i></li>
+            <li><i class="icon icon-w-44 icon-center" @click="toUser"></i></li>
         </ul>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Navbar"
+        name: "Navbar",
+        methods: {
+            toUser() {
+                this.$router.push({
+                    name: "User"
+                })
+            }
+        }
     }
 </script>
 
@@ -34,18 +41,5 @@
             vertical-align: middle;
             cursor: pointer;
         }
-    }
-    .select-car-btn {
-        display: block;
-        margin: 0 17px;
-        height: 84px;
-        width: 240px;
-        line-height: 84px;
-        text-align: center;
-        border-radius: 100px;
-        color: #ffffff;
-        background-color: $color_main;
-        font-size: 26px;
-        font-weight: 300;
     }
 </style>

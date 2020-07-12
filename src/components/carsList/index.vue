@@ -40,31 +40,59 @@
             </footer>
         </section>
         <section class="cars-item cars-detailed" :style="'height:' + height">
-            <h4 class="column">
-                某某停车场
-                <i class="close"></i>
-            </h4>
-            <header>
-                <h4 class="cars-logo">
-                    <img src="../../assets/images/cars-logo.png" alt="Mustang 2019款">
-                    <span class="name">Mustang 2019款</span>
+            <div class="scroll">
+                <h4 class="column">
+                    某某停车场
+                    <i class="close"></i>
                 </h4>
-                <p class="cars-attr">新能源汽车 5座</p>
-            </header>
-            <img src="../../assets/images/pic001.jpg" alt="" width="100%">
-            <div class="clearfix">
-                <h4 class="pull-left fs-24">粤 213213</h4>
-                <p class="distance pull-right">
-                    <sub>约</sub>
-                    <strong>600</strong>
-                    <sub>KM</sub>
-                </p>
-            </div>
-            <div class="cars-electric-box">
-                <div class="p-r">
-                    <span class="e-high" style="width: 80%;"></span>
-                    <span class="e-bg"></span>
+                <header>
+                    <h4 class="cars-logo">
+                        <img src="../../assets/images/cars-logo.png" alt="Mustang 2019款">
+                        <span class="name">Mustang 2019款</span>
+                    </h4>
+                    <p class="cars-attr">新能源汽车 5座</p>
+                </header>
+                <img src="../../assets/images/pic001.jpg" alt="" width="100%">
+                <div class="clearfix">
+                    <h4 class="pull-left fs-24">粤 213213</h4>
+                    <p class="distance pull-right">
+                        <sub>约</sub>
+                        <strong>600</strong>
+                        <sub>KM</sub>
+                    </p>
                 </div>
+                <div class="cars-electric-box">
+                    <div class="p-r">
+                        <span class="e-high" style="width: 80%;"></span>
+                        <span class="e-bg"></span>
+                    </div>
+                </div>
+                <p class="info color-main text-center">取车约支付12.0元停车费, 实际补贴12.0元</p>
+                <ul class="cars-type-list">
+                    <li class="current">
+                        <h4 class="name">日租车</h4>
+                        <span class="price">$300/1天</span>
+                    </li>
+                    <li>
+                        <h4 class="name">日租车</h4>
+                        <span class="price">$300/1天</span>
+                    </li>
+                    <li>
+                        <h4 class="name">日租车</h4>
+                        <span class="price">$300/1天</span>
+                    </li>
+                    <li>
+                        <h4 class="name">日租车</h4>
+                        <span class="price">$300/1天</span>
+                    </li>
+                </ul>
+                <div class="clause-dec">
+                    <span class="pull-left">参保协议大萨达阿萨德阿萨德</span>
+                    <i class="current"></i>
+                </div>
+            </div>
+            <div>
+                <a href="javascript: void(0);" class="select-car-btn">预约用车</a>
             </div>
         </section>
     </div>
@@ -180,6 +208,10 @@
         left: 0;
         right: 0;
         bottom: 0;
+        .scroll {
+            overflow-y: auto;
+            height: 100%;
+        }
         .column {
             position: relative;
             padding: 26px 0 20px;
@@ -212,6 +244,12 @@
                     @include webkit(transform, rotate(-45deg));
                 }
             }
+        }
+        .select-car-btn {
+            position: absolute;
+            bottom: -42px;
+            left: 50%;
+            margin-left: -120px;
         }
     }
     .distance {
@@ -248,6 +286,55 @@
             height: 100%;
             left: 0;
             top: 0;
+        }
+    }
+    .info {
+        margin: 32px 0 28px;
+    }
+    .cars-type-list {
+        li {
+            height: 43px;
+            padding: 0 17px 0 20px;
+            margin-bottom: 15px;
+            background-color: #f3f3f3;
+            border-color: #f3f3f3;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 10px;
+            font-size: 16px;
+            line-height: 43px;
+            &.current {
+                border-color: $color_blur;
+            }
+        }
+        .name {
+            float: left;
+        }
+        .price {
+            float: right;
+        }
+    }
+    .clause-dec {
+        @include clearfix;
+        i {
+            float: right;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #cccccc;
+            &.current {
+                background-color: $color_main;
+            }
+            &:before {
+                content: "";
+                display: block;
+                margin: 6px 0 0 5px;
+                width: 8px;
+                height: 4px;
+                border-left: 2px solid #ffffff;
+                border-bottom: 2px solid #ffffff;
+                @include webkit(transform, rotate(-45deg));
+            }
         }
     }
 </style>

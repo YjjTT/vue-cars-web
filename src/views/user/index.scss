@@ -1,0 +1,29 @@
+.user-info {
+  display: flex;
+  padding: 84px 0 80px 10px;
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 6px solid #2f343a;
+  }
+  .meta {
+    padding-left: 17px;
+    flex: 1;
+    .username {
+      color: #909090;
+      line-height: 43px;
+      font-size: 18px;
+    }
+    span {
+      display: inline-block;
+      height: 27px;
+      padding: 0 17px;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 27px;
+      background-color: #10a0f2;
+      border-radius: 100px;
+    }
+  }
+}

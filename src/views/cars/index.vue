@@ -49,11 +49,6 @@
             }
         },
         methods: {
-            user() {
-                this.$router.push({
-                    name: "User"
-                })
-            }
         }
     }
 </script>
